@@ -6,11 +6,49 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+     <% if admin_signed_in? %>
+      <li>
+        商品一覧
+      </li>
+      <li>
+        会員一覧
+      </li>
+      <li>
+        注文履歴一覧
+      </li>
+      <li>
+        ジャンル一覧
+      </li>
+      <li>
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        About
+      </li>
+      <li>
+        商品一覧
+      </li>
+      <li>
+        新規登録
+      </li>
+      <li>
+        <%= link_to "ログイン", new_admin_session_path %>
+      </li>
+
+      <nav class="navbar navbar-light">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </nav>
+    <% end %>
+  </header>
     <%= yield %>
   </body>
 </html>
