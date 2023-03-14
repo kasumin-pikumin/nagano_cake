@@ -1,5 +1,5 @@
 <h3>商品新規登録</h3>
-<%= form_with model: @item do |f| %>
+<%= form_with model: @item ,url: admin_items_path, method: :post do |f| %>
 
   <p>商品画像</p>
     <%= f.file_field :image, accept: "image/*" %>
@@ -12,6 +12,9 @@
   <p>税抜価格</p>
     <%= f.text_field :price %>
   <p>販売ステータス</p>
+  
+  <button type="button" class="btn btn-success">新規登録</button>
 
 <% end %>
-<button type="button" class="btn btn-success">新規登録</button>
+
+
