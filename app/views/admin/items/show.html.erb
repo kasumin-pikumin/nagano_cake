@@ -2,29 +2,33 @@
 
 <%= image_tag @item.get_image %>
 
-<tbody>
-  <tr>
-<th>商品名</th>
-<td><%= @item.name %></td>
-</tr>
-<tr>
-<th>商品説明</th>
-<td><%= @item.introduction %></td>
-</tr>
-<tr>
-<th>ジャンル</th>
-<td><%= @item %></td>
-</tr>
-<tr>
-<th>税込価格(税抜価格)</th>
-<td><%= @item.price %></td>
-</tr>
-<tr>
-<th>販売ステータス</th>
-<td><%= @item %></td>
-</tr>
-</tbody>
+<table class= "table table-borderless">
 
+  <tbody>
+    <tr>
+      <th>商品名</th>
+      <td><%= @item.name %></td>
+    </tr>
+    <tr>
+      <th>商品説明</th>
+      <td><%= @item.introduction %></td>
+    </tr>
+    <tr>
+      <th>ジャンル</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>税込価格(税抜価格)</th>
+    <td><%= @item.price %></td>
+    </tr>
+    <tr>
+      <th>販売ステータス</th>
+      <td></td>
+      </tr>
+  </tbody>
 
-<button type="button" class="btn btn-success">編集</button>
+</table>
+
+<%= link_to "編集", edit_admin_item_path , class: "btn btn-info btn-block" %>
+
 
