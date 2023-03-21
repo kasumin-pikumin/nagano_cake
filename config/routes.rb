@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     root 'homes#top'
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit]
+    resources :genres, only: [:index, :edit, :update, :new, :create]
 
   end
 
