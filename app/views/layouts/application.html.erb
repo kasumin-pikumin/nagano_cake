@@ -45,7 +45,7 @@
           <% elsif customer_signed_in? %>
             <li>
               <button type="button" class="btn btn-light">
-                "マイページ"
+                <%= link_to "マイページ", customers_my_page_path %>
             </li>
             <li>
               <button type="button" class="btn btn-light">

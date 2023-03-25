@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+    get 'customers/my_page' => 'public/customers#show'
+    get 'customers/information/edit' => 'public/customers#edit'
+    get 'customers/unsubscribe' => 'public/customers#unsubscribe'
+
   devise_for :admin, skip: [:registrations, :passwords] , controllers: {
     sessions: "admin/sessions"
   }
@@ -16,6 +20,8 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+
+
 
   root to: "public/homes#top"
   get 'about' => 'public/homes#about'
