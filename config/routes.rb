@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get 'customers/information/edit' => 'public/customers#edit'
     patch 'customers/information' => 'public/customers#update'
     get 'customers/unsubscribe' => 'public/customers#unsubscribe'
+    patch 'customers/withdraw' => 'public/customers#withdraw'
 
   devise_for :admin, skip: [:registrations, :passwords] , controllers: {
     sessions: "admin/sessions"
