@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+    get 'addresses' => 'public/addresses#index'
+    get 'addresses/:id/edit' => 'public/addresses#edit', as: 'edit_address'
+    post 'addresses' => 'public/addresses#create'
+    delete 'addresses/:id' => 'public/addresses#destroy',as: 'destroy_address'
+
     get 'customers/my_page' => 'public/customers#show'
     get 'customers/information/edit' => 'public/customers#edit'
     patch 'customers/information' => 'public/customers#update'
