@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+    resources :items, only: [:index, :show]
+
     get 'addresses' => 'public/addresses#index'
     get 'addresses/:id/edit' => 'public/addresses#edit', as: 'edit_address'
     post 'addresses' => 'public/addresses#create'
     delete 'addresses/:id' => 'public/addresses#destroy',as: 'destroy_address'
+    patch  'addresses/:id' => 'public/addresses#update',as: 'update_address'
 
     get 'customers/my_page' => 'public/customers#show'
     get 'customers/information/edit' => 'public/customers#edit'
