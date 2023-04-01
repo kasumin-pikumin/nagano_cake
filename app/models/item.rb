@@ -17,4 +17,6 @@ class Item < ApplicationRecord
     image
   end
 
+  validates :is_active, inclusion: [true]
+
 end

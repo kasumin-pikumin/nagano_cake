@@ -1,2 +1,12 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+
+
+<%= image_tag @item.get_image %>
+
+
+  <h3><%= @item.name %></h3>
+  <p><%= @item.introduction %></p>
+  <h5>ジャンル: <%= @item.genre %></h5>
+  <h5><%= @item.price %></h5>
+
+<p>"カートに入れる"</p>
+

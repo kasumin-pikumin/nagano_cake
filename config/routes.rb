@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-    resources :items, only: [:index, :show]
+
+    get 'cart_items' =>'public/cart_items#index'
+    get 'cart_items' =>'public/cart_items#create'
+
+    get 'items' => 'public/items#index'
+    get 'items/:id' =>'public/items#show', as: 'show_items'
 
     get 'addresses' => 'public/addresses#index'
     get 'addresses/:id/edit' => 'public/addresses#edit', as: 'edit_address'
@@ -21,7 +26,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'homes#top'
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
-    resources :customers, only: [:index, :show, :edit]
+    resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :edit, :update, :new, :create]
 
   end

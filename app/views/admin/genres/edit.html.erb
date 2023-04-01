@@ -1,7 +1,9 @@
 <h3>ジャンル編集</h3>
 
 <%= form_with model: @genre ,url: admin_genre_path(@genre.id), method: :patch do |f| %>
-  <p>ジャンル名</p>
-  <%= f.text_field :name %>
+  <div class="field">
+    <%= f.label :ジャンル名 %>
+    <%= f.text_field :name %>
+  </div>
   <p><%= f.submit '保存' , class: "btn btn-success" %></p>
 <% end %>

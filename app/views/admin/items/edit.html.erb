@@ -3,14 +3,36 @@
 
 <%= form_with model: @item ,url: admin_item_path(@item.id), method: :patch do |f| %>
 
-  <p>商品画像</p>
+  <div class="field">
+    <%= f.label :商品画像 %>
     <%= f.file_field :image, accept: "image/*" %>
-  <p>商品名</p>
+  </div>
+  <div class="field">
+    <%= f.label :商品名 %>
     <%= f.text_field :name %>
-  <p>商品説明</p>
+  </div>
+  <div class="field">
+    <%= f.label :商品説明 %>
     <%= f.text_area :introduction %>
-  <p>税抜価格</p>
+  </div>
+  <div class="field">
+    <%= f.label :ジャンル %>
+
+  </div>
+  <div class="field">
+    <%= f.label :税抜価格 %>
     <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :販売ステータス %>
+    <div>
+    <%= f.radio_button :is_active, "販売中" %>
+    <%= f.label :販売中, '販売中', value: true %>
+    <%= f.radio_button :is_active, "販売停止中" %>
+    <%= f.label :販売停止中, '販売停止中', value: false %>
+    </div>
+  </div>
+
 
   <p><%= f.submit '変更を保存' , class: "btn btn-success" %></p>
 

@@ -2,14 +2,34 @@
 
 <%= form_with model: @item ,url: admin_items_path, method: :post do |f| %>
 
-  <p>商品画像</p>
+  <div class="field">
+    <%= f.label :商品画像 %>
     <%= f.file_field :image, accept: "image/*" %>
-  <p>商品名</p>
+  </div>
+  <div class="field">
+    <%= f.label :商品名 %>
     <%= f.text_field :name %>
-  <p>商品説明</p>
+  </div>
+  <div class="field">
+    <%= f.label :商品説明 %>
     <%= f.text_area :introduction %>
-  <p>税抜価格</p>
+  </div>
+  <div class="field">
+    <%= f.label :ジャンル %>
+
+  </div>
+  <div class="field">
+    <%= f.label :税抜価格 %>
     <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :販売ステータス %>
+    <%= f.radio_button :is_active, "販売中" %>
+    <%= f.label :販売中 %>
+    <%= f.radio_button :is_active, "販売停止中" %>
+    <%= f.label :販売停止中 %>
+  </div>
+
 
   <p><%= f.submit '新規登録' , class: "btn btn-success" %></p>
 
