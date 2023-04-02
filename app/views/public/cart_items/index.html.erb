@@ -1,8 +1,7 @@
 <h3>ショッピングカート</h3>
-<table class="table">
+<table class="table table-bordered">
   <thead>
     <tr>
-      <th ="col">商品ID</th>
       <th ="col">商品名</th>
       <th ="col">単価(税込)</th>
       <th ="col">数量</th>
@@ -12,13 +11,19 @@
   </thead>
 
   <tbody>
+  <% @cart_items.each do |cart_item| %>
     <tr>
-      <th></th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>
+        <%= image_tag cart_item.get_image %>
+        <%= cart_item.name %>
+      </td>
+      <td><%= cart_item.item.with_tax_price %></td>
+      <td><%= cart_item.amount %></td>
+      <td><%= cart_item.subtotal %></td>
+      <td><%= link_to "削除する" , destroy_cart_items_path(current_customer.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></td>
+      <% @total_price += cart_item.subtotal %>
     </tr>
+  <% end %>
   </tbody>
 </table>
 

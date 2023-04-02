@@ -15,7 +15,7 @@
       <tr>
         <th scope="row"><%= customer.id %></th>
         <td>
-          <%= link_to admin_customer_path(:customer_id) do %>
+          <%= link_to admin_customer_path(customer.id) do %>
             <%= customer.last_name %> <%= customer.first_name %>
           <% end %>
           </td>

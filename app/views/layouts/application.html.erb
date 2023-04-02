@@ -16,6 +16,7 @@
         <div class="container">
           <ul class="navbar-nav ml-auto">
           <% if admin_signed_in? %>
+            <% if request.fullpath.include? "/admin" %>
             <li>
               <button type="button" class="btn btn-light">
                 <%= link_to "商品一覧", admin_items_path %>
@@ -41,6 +42,29 @@
               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
               </button>
             </li>
+            <% else %>
+              <li>
+              <button type="button" class="btn btn-light">
+                <%= link_to "About", about_path %>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="btn btn-light">
+              <%= link_to "商品一覧", admin_items_path %>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="btn btn-light">
+              <%= link_to "新規登録", new_customer_registration_path %>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="btn btn-light">
+              <%= link_to "ログイン", new_customer_session_path %>
+              </button>
+            </li>
+
+            <% end %>
 
           <% elsif customer_signed_in? %>
             <li>
