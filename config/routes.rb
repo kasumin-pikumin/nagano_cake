@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
+    get 'orders/new' => 'public/orders#new'
+    post 'orders' => 'public/orders#create'
+    get 'orders/index' => 'public/orders#index'
+    get 'orders/show' => 'public/orders#show'
+
 
     get 'cart_items' =>'public/cart_items#index'
     post 'cart_items' =>'public/cart_items#create'
+    patch 'cart_items/:id' => 'public/cart_items#update'
     delete 'cart_items/:id' => 'public/cart_items#destroy',as: 'destroy_cart_items'
 
     get 'items' => 'public/items#index'

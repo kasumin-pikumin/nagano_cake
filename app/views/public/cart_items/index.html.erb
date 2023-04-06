@@ -14,35 +14,41 @@
   <% @cart_items.each do |cart_item| %>
     <tr>
       <td>
-        <%= image_tag cart_item.get_image %>
-        <%= cart_item.name %>
+        <%= image_tag cart_item.item.get_image %>
+        <%= cart_item.item.name %>
       </td>
       <td><%= cart_item.item.with_tax_price %></td>
-      <td><%= cart_item.amount %></td>
+      <td>
+
+          <%= cart_item.amount %>
+
+      </td>
       <td><%= cart_item.subtotal %></td>
       <td><%= link_to "削除する" , destroy_cart_items_path(current_customer.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></td>
       <% @total_price += cart_item.subtotal %>
     </tr>
   <% end %>
+
   </tbody>
 </table>
 
 <%= link_to "買い物を続ける", root_path , class: "btn btn-info" %>
 
 
-<table class="table">
+<table class="table table-bordered">
   <thead>
-    <tr>合計金額</tr>
+    <tr>
+      <th>合計金額</th>
+      <th><%= @total_price %></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th></th>
-      <td></td>
     </tr>
   </tbody>
 </table>
 
-<%= link_to "情報入力に進む", root_path , class: "btn btn-success" %>
+<%= link_to "情報入力に進む", new_order_path, class: "btn btn-success" %>
 
 
 
