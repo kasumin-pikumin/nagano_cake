@@ -1,5 +1,5 @@
 <h3>配送先編集</h3>
-<%= form_with model: @address, url: addresses_path, method: :patch do |f| %>
+<%= form_with model: @address, url: update_address_path, method: :patch do |f| %>
 
   <div class="field">
     <%= f.label :郵便番号 %>

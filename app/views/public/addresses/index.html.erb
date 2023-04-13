@@ -1,5 +1,6 @@
+
 <h3>配送先登録/一覧</h3>
-<%= form_with model: @customer, url: addresses_path,method: :post do |f| %>
+<%= form_with model: @address, url: create_address_path, method: :post do |f| %>
   <div class="field">
     <%= f.label :郵便番号（ハイフンなし） %>
     <%= f.text_field :postal_code %>
@@ -30,8 +31,8 @@
         <td><%= address.address %></td>
         <td><%= address.name %></td>
         <td>
-          <%= link_to "編集する" , edit_address_path(current_customer.id), class: "btn btn-success" %>
-          <%= link_to "削除する" , destroy_address_path(current_customer.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+          <%= link_to "編集する" , edit_address_path(address.id), class: "btn btn-success" %>
+          <%= link_to "削除する" , destroy_address_path(address.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
         </td>
       </tr>
       <% end %>
