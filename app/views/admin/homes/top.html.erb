@@ -1,5 +1,5 @@
 
-<h3>注文履歴一覧</h3>
+<h4>注文履歴一覧</h4>
 
 <table class= "table">
   <thead>
@@ -12,12 +12,14 @@
   </thead>
 
   <tbody>
+    <% @orders.each do |order| %>
     <tr>
-      <td>あ</td>
-      <td>い</td>
-      <td>う</td>
-      <td>え</td>
+      <td><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_order_path(order.id) %></td>
+      <td><%= order.name %></td>
+      <td></td>
+      <td><%= order.status %></td>
     </tr>
+    <% end %>
   </tbody>
 
 </table>

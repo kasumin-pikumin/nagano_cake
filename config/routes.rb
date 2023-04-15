@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :edit, :update, :new, :create]
-
+    resources :orders, only: [:show]
   end
 
   devise_for :customers, skip: [:passwords], controllers: {

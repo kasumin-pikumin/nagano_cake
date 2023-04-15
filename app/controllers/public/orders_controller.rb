@@ -33,16 +33,35 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.orders.all
   end
 
   def show
+    @order = Order.find(params[:id])
+    @shopping_cost = 800
+    @total_price = 
+  end
+
+  def create
+    @order = current_customer.orders.new(order_params)
+    @order.save
+    @cart_items = current_customer.cart_items.all
+      @cart_items.each do |cart_item|
+        @order_details = @order.order_details.new
+        @order_details.item_id = cart_item.item.id
+        @order_details.price = cart_item.item.price
+        @order_details.amount = cart_item.amount
+        @order_details.save
+      end
+    current_customer.cart_items.destroy_all
+    redirect_to orders_complete_path
   end
 
 
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :item_id)
   end
 
 

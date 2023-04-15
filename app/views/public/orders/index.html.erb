@@ -12,15 +12,18 @@
   </thead>
 
   <tbody>
-
+  <% @orders.each do |order| %>
     <tr>
+      <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+      <td>
+        <%= order.postal_code %><br>
+        <%= order.address %><br>
+        <%= order.name %>
+      </td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td><%= link_to "表示する", root_path, class: "btn btn-info" %></td>
+      <td><%= link_to "表示する", show_order_path(order.id), class: "btn btn-info" %></td>
     </tr>
-
-
+  <% end %>
   </tbody>
 </table>
