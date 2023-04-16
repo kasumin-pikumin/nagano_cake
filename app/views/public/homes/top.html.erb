@@ -1,17 +1,31 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-2">
-      <p>ジャンル検索</p>
+      <%= render 'public/shared/genre_search', genres: @genres %>
     </div>
     <div class="col-lg-10">
       <h1>ようこそながのCAKEへ！</h1>
+      <p>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        会員でない方も商品の閲覧はできますが、<br>
+        購入には会員登録が必要になります。<br>
+      </p>
 
       <h3>新着商品</h3>
-      <% @items.each do |item| %>
-        <p><%= link_to image_tag(item.get_image), show_items_path(item.id) %></p>
-        <p><%= item.name %></p>
-        <p>￥<%= item.price %>(税込)</p>
-      <% end %>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+          <% @items.each do |item| %>
+            <th>
+              <%= link_to image_tag(item.get_image), show_items_path(item.id) %><br>
+              <%= item.name %><br>
+              ￥<%= item.price %>(税込)<br>
+            </th>
+          <% end %>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
   </div>
 </div>
