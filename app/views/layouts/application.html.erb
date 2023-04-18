@@ -67,6 +67,7 @@
             <% end %>
 
           <% elsif customer_signed_in? %>
+            <p>いらっしゃいませ！<%= current_customer.last_name %>さま！</p>
             <li>
               <button type="button" class="btn btn-light">
                 <%= link_to "マイページ", customers_my_page_path %>

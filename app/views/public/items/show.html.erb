@@ -1,12 +1,14 @@
 
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
 
 <%= image_tag @item.get_image %>
 
 
   <h3><%= @item.name %></h3>
   <p><%= @item.introduction %></p>
-  <h5>ジャンル: <%= @item.genre_id %></h5>
-  <h5><%= @item.price %></h5>
+  <h5><%= @item.price %>円</h5>
 
   <p>数量を選択してください</p>
   <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
@@ -15,4 +17,7 @@
     <%= f.submit "カートに入れる", class: "btn btn-info" %>
   <% end %>
 
+    </div>
+  </div>
+</div>
 

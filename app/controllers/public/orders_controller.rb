@@ -39,7 +39,7 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @shopping_cost = 800
-    @total_price = 
+    #@total_price = 
   end
 
   def create

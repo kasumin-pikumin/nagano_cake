@@ -11,8 +11,15 @@ class Public::CartItemsController < ApplicationController
 
   def index
     @cart_items = current_customer.cart_items
+    @cart_item = CartItem.find(params[:id])
     @total_price = 0
 
+  end
+
+  def update
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(cart_item_params)
+    redirect_to request.referer, notice: "数量を変更しました"
   end
 
   def destroy_all
@@ -35,10 +42,6 @@ class Public::CartItemsController < ApplicationController
 
   def cart_items_params
     params.require(:cart_item).permit(:item_id, :amount)
-  end
-
-  def item_params
-    params.permit(:image, :name, :introduction, :genre, :price, :item_id, :cart_item)
   end
 
 end

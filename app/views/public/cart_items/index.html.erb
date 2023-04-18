@@ -20,7 +20,11 @@
         <%= cart_item.item.name %>
       </td>
       <td><%= cart_item.item.with_tax_price %></td>
-      <td> <%= cart_item.amount %>
+      <td>
+        <% form_with model: @cart_item, url: cart_items_path, method :patch do |f| %>
+          <%= f.select :amount, options_for_select(@cart_item.amount) %>
+          <%= f.submit "変更", class: "btn btn-info" %>
+        <% end %>
       </td>
       <td><%= cart_item.subtotal %></td>
       <td><%= link_to "削除する", destroy_cart_items_path(cart_item.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></td>
