@@ -43,7 +43,7 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @shopping_cost = 800
-    #@total_price =
+    @order_details = @order.order_details.all
   end
 
   def create
@@ -67,6 +67,7 @@ class Public::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:shopping_cost, :payment, :status, :payment_method, :postal_code, :address, :name, :item_id)
   end
+
 
 
 end

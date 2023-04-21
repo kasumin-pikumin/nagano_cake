@@ -17,9 +17,9 @@
             <%= image_tag cart_item.item.get_image %>
             <%= cart_item.item.name %>
           </td>
-          <td><%= cart_item.item.with_tax_price %></td>
+          <td><%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
           <td><%= cart_item.amount %></td>
-          <td><%= cart_item.subtotal %></td>
+          <td><%= cart_item.subtotal.to_s(:delimited) %></td>
         </tr>
         <% @total_price += cart_item.subtotal %>
         <% end %>
@@ -34,12 +34,12 @@
         </tr>
         <tr>
           <th>商品合計</th>
-          <td><%= @total_price %></td>
+          <td><%= @total_price.to_s(:delimited) %></td>
         </tr>
         <% @total_price += @shopping_cost %>
         <tr>
           <th>請求金額</th>
-          <td><%= @total_price %></td>
+          <td><%= @total_price.to_s(:delimited) %></td>
         </tr>
       </table>
     </div>
@@ -50,10 +50,10 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h5>支払方法</h5>
+      <h5>< 支払方法 ></h5>
       <p><%= @order.payment_method_i18n %></p>
 
-      <h5>お届け先</h5>
+      <h5>< お届け先 ></h5>
       <p><%= @order.postal_code %></p>
       <p><%= @order.address %></p>
       <p><%= @order.name %></p>
