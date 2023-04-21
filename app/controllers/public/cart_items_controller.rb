@@ -11,15 +11,13 @@ class Public::CartItemsController < ApplicationController
 
   def index
     @cart_items = current_customer.cart_items
-    @cart_item = CartItem.find(params[:id])
     @total_price = 0
-
   end
 
   def update
     @cart_item = CartItem.find(params[:id])
-    @cart_item.update(cart_item_params)
-    redirect_to request.referer, notice: "数量を変更しました"
+    @cart_item.update(cart_items_params)
+    redirect_to cart_items_path
   end
 
   def destroy_all

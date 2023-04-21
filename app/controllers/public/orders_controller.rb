@@ -1,8 +1,12 @@
 class Public::OrdersController < ApplicationController
+
+
   def new
+    @cart_items = current_customer.cart_items.all
     @order = Order.new
     @customer = current_customer
   end
+
 
   def confirm
     @order = Order.new(order_params)
@@ -39,12 +43,12 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @shopping_cost = 800
-    #@total_price = 
+    #@total_price =
   end
 
   def create
     @order = current_customer.orders.new(order_params)
-    @order.save
+    @order.save!
     @cart_items = current_customer.cart_items.all
       @cart_items.each do |cart_item|
         @order_details = @order.order_details.new
@@ -61,7 +65,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :item_id)
+    params.require(:order).permit(:shopping_cost, :payment, :status, :payment_method, :postal_code, :address, :name, :item_id)
   end
 
 

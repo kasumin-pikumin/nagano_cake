@@ -10,9 +10,13 @@ Rails.application.routes.draw do
 
     get 'cart_items' =>'public/cart_items#index'
     post 'cart_items' =>'public/cart_items#create'
-    patch 'cart_items/:id' => 'public/cart_items#update'
+    patch 'cart_items/:id' => 'public/cart_items#update' ,as: 'cart_item'
     delete  'cart_items/destroy_all' => 'public/cart_items#destroy_all' ,as: 'destroy_all_cart_items'
     delete 'cart_items/:id' => 'public/cart_items#destroy',as: 'destroy_cart_items'
+
+    #scope module: :public do
+    #resources :cart_items, only: [:create, :update, :destroy]
+    #end
 
 
     get 'items' => 'public/items#index'
