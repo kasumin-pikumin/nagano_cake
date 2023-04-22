@@ -10,7 +10,6 @@
       <th ="col">商品名</th>
       <th ="col">税抜価格</th>
       <th ="col">ジャンル</th>
-      <th ="col">ステータス</th>
     </tr>
   </thead>
 
@@ -21,7 +20,6 @@
       <td><%= link_to item.name, admin_item_path(item.id) %></td>
       <td><%= item.price %></td>
       <td><%= item.genre.name %></td>
-      <td><%= item.is_active  ? "販売中" : "販売停止中" %></td>
     </tr>
   <% end %>
   </tbody>
