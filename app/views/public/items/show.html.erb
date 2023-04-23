@@ -1,14 +1,14 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-8">
+    <div class="mx-auto">
 
-<%= image_tag @item.get_image %>
+<%= image_tag @item.get_image, size: "300x200" %>
 
 
   <h3><%= @item.name %></h3>
   <p><%= @item.introduction %></p>
-  <h5><%= @item.price %>円</h5>
+  <h5><%= @item.with_tax_price %>円(税込)</h5>
 
   <p>数量を選択してください</p>
   <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>

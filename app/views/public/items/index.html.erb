@@ -12,9 +12,9 @@
           <tr class="d-flex flex-wrap">
             <% @items.each do |item| %>
             <th>
-              <%= link_to image_tag(item.get_image, size: "200x200"), show_items_path(item.id) %><br>
+              <%= link_to image_tag(item.get_image, size: "200x150"), show_items_path(item.id) %><br>
               <%= item.name %><br>
-              ￥<%= item.price %>(税込)
+              ￥<%= item.price %>
             </th>
             <% end %>
           </tr>
