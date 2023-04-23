@@ -17,11 +17,17 @@
           <tr>
           <% @items.each do |item| %>
             <th>
-              <%= link_to image_tag(item.get_image), show_items_path(item.id) %><br>
+              <%= link_to image_tag(item.get_image, size: "200x200" ), show_items_path(item.id) %><br>
               <%= item.name %><br>
               ￥<%= item.price %>(税込)<br>
             </th>
           <% end %>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><%= link_to "すべての商品をみる>>", items_path %></td>
           </tr>
         </tbody>
       </table>

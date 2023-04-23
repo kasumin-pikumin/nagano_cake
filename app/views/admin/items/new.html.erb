@@ -26,17 +26,7 @@
     <td><%= f.label :税抜価格 %></td>
     <td><%= f.text_field :price %>円</td>
   </tr>
-  <tr>
-    <td>
-      <%= f.label :販売ステータス %>
-    </td>
-    <td>
-      <%= f.radio_button :is_active, "true" %>
-      <%= f.label :販売中 %>
-      <%= f.radio_button :is_active, "false" %>
-      <%= f.label :販売停止中 %>
-    </td>
-  </tr>
+
   <tr>
     <td></td>
     <td><%= f.submit '新規登録' , class: "btn btn-success" %></td>

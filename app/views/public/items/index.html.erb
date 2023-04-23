@@ -2,16 +2,26 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-2">
-      <h4 class="genres">ジャンル検索</h4>
+      <%= render 'public/shared/genre_search', genres: @genres %>
     </div>
-    <div class="col-lg-10">
-      <h3>商品一覧</h3>
-      <% @items.each do |item| %>
-        <p><%= link_to image_tag(item.get_image), show_items_path(item.id) %></p>
-        <p><%= item.name %></p>
-        <p>￥<%= item.price %>(税込)</p>
-      <% end %>
+
+    <div class="col-10">
+      <h4>商品一覧</h4>
+      <table class="table table-borderless">
+        <tbody>
+          <tr class="d-flex flex-wrap">
+            <% @items.each do |item| %>
+            <th>
+              <%= link_to image_tag(item.get_image, size: "200x200"), show_items_path(item.id) %><br>
+              <%= item.name %><br>
+              ￥<%= item.price %>(税込)
+            </th>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
   </div>
 </div>
 
